@@ -17,11 +17,11 @@ class Game
   end
 
   def current_player(last_player)
-    last_player == 'human' ? 'computer' : 'human'
+    last_player.class == Human ? @computer : @human
   end
 
   def get_move_from(the_current_player)
-    the_current_player.class == Human ? @human.get_next_move : 'O'
+    the_current_player.get_next_move
   end
 end
 
@@ -32,4 +32,7 @@ class Human
 end
 
 class Computer
+  def get_next_move
+    1
+  end
 end
