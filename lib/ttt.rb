@@ -6,7 +6,7 @@ class Game
               7 => ' ', 8 => ' ', 9 => ' '}
     @first_player = first_player
     @human = Human.new(@first_player)
-    @computer = Computer.new
+    @computer = Computer.new(@first_player)
   end
 
   def first_player
@@ -47,9 +47,14 @@ end
 
 class Computer
   attr_reader :mark
-  def initialize
-    @mark = 'O'
+  def initialize(first_player)
+    @mark = set_mark(first_player)
   end
+
+  def set_mark(first_player)
+    first_player == 'computer' ? 'X' : 'O'
+  end
+
   def get_next_move
     1
   end

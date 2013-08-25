@@ -52,7 +52,7 @@ describe Game do
     end
 
     it "should get the next move from the computer player" do
-      current_player = Computer.new
+      current_player = Computer.new('human')
       expect(game.get_move_from(current_player)).to eq 1
     end
   end
