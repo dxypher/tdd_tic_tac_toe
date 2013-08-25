@@ -6,8 +6,8 @@ describe Game do
   describe '.new' do
     it "initializes an empty board" do
       board = {1 => ' ', 2 => ' ', 3 => ' ',
-       4 => ' ', 5 => ' ', 6 => ' ',
-       7 => ' ', 8 => ' ', 9 => ' '}
+               4 => ' ', 5 => ' ', 6 => ' ',
+               7 => ' ', 8 => ' ', 9 => ' '}
       expect(game.board).to eq board
     end
   end
@@ -23,6 +23,13 @@ describe Game do
     it "should get the mark of the current player" do
       current_player = stub('current_player', 'mark' => 'O')
       expect(game.get_mark(current_player)).to eq 'O'
+    end
+  end
+
+  describe '#current_player' do
+    it "should return computer if last move was made by human" do
+      last_player = 'human'
+      expect(game.current_player(last_player)).to eq 'computer'
     end
   end
 end

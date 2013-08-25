@@ -13,4 +13,8 @@ class Game
   def get_mark(current_player)
     current_player.mark
   end
+
+  def current_player(last_player)
+    'computer'
+  end
 end
