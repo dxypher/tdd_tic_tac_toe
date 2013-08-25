@@ -37,4 +37,12 @@ describe Game do
       expect(game.current_player(last_player)).to eq 'human'
     end
   end
+
+  describe '#get_move' do
+    it "should get the next move from the current_player" do
+      current_player = Human.new
+      current_player.stub(:gets) { "7\n" }
+      expect(current_player.get_next_move).to eq 7
+    end
+  end
 end

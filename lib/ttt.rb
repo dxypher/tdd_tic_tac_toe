@@ -3,7 +3,9 @@ class Game
   def initialize
     @board = {1 => ' ', 2 => ' ', 3 => ' ',
               4 => ' ', 5 => ' ', 6 => ' ',
-              7 => ' ', 8 => ' ', 9 => ' '}
+              7 => ' ', 8 => ' ', 9 => ' '}    
+    @human = Human.new
+    @computer = Computer.new      
   end
 
   def make_move(position, mark)
@@ -17,4 +19,17 @@ class Game
   def current_player(last_player)
     last_player == 'human' ? 'computer' : 'human'
   end
+
+  def get_move_from(the_current_player)
+    the_current_player.class == Human ? @human.get_next_move : 'O'
+  end
+end
+
+class Human
+  def get_next_move
+    gets.chomp.to_i
+  end
+end
+
+class Computer
 end
