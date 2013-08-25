@@ -26,7 +26,17 @@ class Game
   end
 
   def get_move_from(the_current_player)
-    the_current_player.get_next_move
+    puts "Choose your next move..."
+    move = the_current_player.get_next_move
+    if !(1..9).include?(move)
+      puts "Sorry, please enter a valid box number between 1 and 9."
+      get_move_from(the_current_player)
+    elsif @board[move] != ' '
+      puts "Sorry, that box is already filled."
+      get_move_from(the_current_player)
+    else
+      move
+    end
   end
 end
 

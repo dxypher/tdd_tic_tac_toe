@@ -3,6 +3,9 @@ require 'ttt'
 
 describe Game do
   let(:game) {Game.new}
+  before do
+    IO.any_instance.stub(:puts)
+  end
   describe '.new' do
     it "initializes an empty board" do
       board = {1 => ' ', 2 => ' ', 3 => ' ',
@@ -54,6 +57,12 @@ describe Game do
     it "should get the next move from the computer player" do
       current_player = Computer.new('human')
       expect(game.get_move_from(current_player)).to eq 1
+    end
+
+    it "should not return a position which is already taken" do
+      current_player = Human.new('computer')
+      current_player.stub(:gets) { "7\n" }
+      expect(game.get_move_from(current_player)).to eq 7 
     end
   end
 
