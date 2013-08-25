@@ -11,7 +11,7 @@ class Game
   end
 
   def get_mark(current_player)
-    current_player.mark
+    current_player == 'computer' ? 'O' : 'X'
   end
 
   def current_player(last_player)

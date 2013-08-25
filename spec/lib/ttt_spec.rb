@@ -21,7 +21,7 @@ describe Game do
 
   describe '#get_mark' do
     it "should get the mark of the current player" do
-      current_player = stub('current_player', 'mark' => 'O')
+      current_player = 'computer'
       expect(game.get_mark(current_player)).to eq 'O'
     end
   end
