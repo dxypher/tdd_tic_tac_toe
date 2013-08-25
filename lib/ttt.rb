@@ -9,4 +9,8 @@ class Game
   def make_move(position, mark)
     @board[position] = mark
   end
+
+  def get_mark(current_player)
+    current_player.mark
+  end
 end
