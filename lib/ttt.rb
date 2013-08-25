@@ -8,12 +8,16 @@ class Game
     @computer = Computer.new      
   end
 
+  def self.first_player
+    first_player = ['computer', 'human'].sample
+  end
+
   def make_move(position, mark)
     @board[position] = mark
   end
 
   def get_mark(current_player)
-    current_player == 'computer' ? 'O' : 'X'
+    current_player.mark
   end
 
   def current_player(last_player)
@@ -32,6 +36,10 @@ class Human
 end
 
 class Computer
+  attr_reader :mark
+  def initialize
+    @mark = 'O'
+  end
   def get_next_move
     1
   end
