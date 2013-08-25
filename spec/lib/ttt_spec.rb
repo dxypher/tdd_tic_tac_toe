@@ -10,6 +10,11 @@ describe Game do
                7 => ' ', 8 => ' ', 9 => ' '}
       expect(game.board).to eq board
     end
+
+    it "sets who the first player will be" do
+      game.should_receive(:first_player).and_return('computer')
+      expect(game.first_player).to eq 'computer'
+    end
   end
 
   describe '#make_move' do
@@ -29,7 +34,7 @@ describe Game do
 
   describe '#current_player' do
     it "should return computer if last move was made by human" do
-      last_player = Human.new
+      last_player = Human.new('computer')
       expect(game.current_player(last_player)).to be_an_instance_of(Computer)
     end
 
@@ -41,7 +46,7 @@ describe Game do
 
   describe '#get_move' do
     it "should get the next move from the human player" do
-      current_player = Human.new
+      current_player = Human.new('computer')
       current_player.stub(:gets) { "7\n" }
       expect(game.get_move_from(current_player)).to eq 7      
     end
@@ -56,7 +61,7 @@ describe Game do
     it "should choose at random which player will go first" do
       result = []
       20.times do
-        result << Game.first_player
+        result << game.first_player
       end
       result.count('computer').should be > 0
       result.count('computer').should_not eq 20

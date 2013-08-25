@@ -1,14 +1,15 @@
 class Game
-  attr_reader :board
+  attr_reader :board, :first_player
   def initialize
     @board = {1 => ' ', 2 => ' ', 3 => ' ',
               4 => ' ', 5 => ' ', 6 => ' ',
-              7 => ' ', 8 => ' ', 9 => ' '}    
-    @human = Human.new
-    @computer = Computer.new      
+              7 => ' ', 8 => ' ', 9 => ' '}
+    @first_player = first_player
+    @human = Human.new(@first_player)
+    @computer = Computer.new
   end
 
-  def self.first_player
+  def first_player
     first_player = ['computer', 'human'].sample
   end
 
@@ -30,6 +31,15 @@ class Game
 end
 
 class Human
+  attr_reader :mark
+  def initialize(first_player)
+    @mark = set_mark(first_player)
+  end
+
+  def set_mark(first_player)
+    first_player == 'human' ? 'X' : 'O'
+  end
+
   def get_next_move
     gets.chomp.to_i
   end
