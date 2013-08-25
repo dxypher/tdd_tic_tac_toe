@@ -31,5 +31,10 @@ describe Game do
       last_player = 'human'
       expect(game.current_player(last_player)).to eq 'computer'
     end
+
+    it "should return human if last move was made by computer" do
+      last_player = 'computer'
+      expect(game.current_player(last_player)).to eq 'human'
+    end
   end
 end

@@ -15,6 +15,6 @@ class Game
   end
 
   def current_player(last_player)
-    'computer'
+    last_player == 'human' ? 'computer' : 'human'
   end
 end
