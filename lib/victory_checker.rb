@@ -6,6 +6,7 @@ class VictoryChecker
     mid = grid.values_at(4, 5, 6)
     bottom = grid.values_at(7, 8, 9)
 
-    'X' if [top, mid, bottom].include?(THREE_CONSECUTIVE_Xs)
+    return 'X' if [top, mid, bottom].include?(THREE_CONSECUTIVE_Xs)
+    return 'O' if [top, mid, bottom].include?(THREE_CONSECUTIVE_Os)
   end
 end
