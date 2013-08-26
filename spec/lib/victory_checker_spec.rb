@@ -44,4 +44,24 @@ describe VictoryChecker do
       expect(victory_checker.vertical_win(board.grid)).to be_nil
     end
   end
+
+  context "diagonal_win" do
+    it "should return 'X' if any column has all X's" do
+      victory_checker = VictoryChecker.new
+      board.grid[1], board.grid[5], board.grid[9] = 'X', 'X', 'X'
+      expect(victory_checker.diagonal_win(board.grid)).to eq 'X'
+    end
+
+    it "should return 'O' if any column has all O's" do
+      victory_checker = VictoryChecker.new
+      board.grid[3], board.grid[5], board.grid[7] = 'O', 'O', 'O'
+      expect(victory_checker.diagonal_win(board.grid)).to eq 'O'
+    end
+
+    it "should return nil if there are no vertical wins" do
+      victory_checker = VictoryChecker.new
+      board.grid[1], board.grid[9] = 'O', 'O'
+      expect(victory_checker.diagonal_win(board.grid)).to be_nil
+    end
+  end
 end
