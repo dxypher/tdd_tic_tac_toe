@@ -1,9 +1,7 @@
 class Game
   attr_reader :board, :first_player
   def initialize
-    @board = {1 => ' ', 2 => ' ', 3 => ' ',
-              4 => ' ', 5 => ' ', 6 => ' ',
-              7 => ' ', 8 => ' ', 9 => ' '}
+    @board = Board.new
     @first_player = first_player
     @human = Human.new(@first_player)
     @computer = Computer.new(@first_player)
@@ -14,7 +12,7 @@ class Game
   end
 
   def make_move(position, mark)
-    @board[position] = mark
+    @board.place_mark(position, mark)
   end
 
   def get_mark(current_player)
@@ -31,7 +29,7 @@ class Game
     if !(1..9).include?(move)
       puts "Sorry, please enter a valid box number between 1 and 9."
       get_move_from(the_current_player)
-    elsif @board[move] != ' '
+    elsif @board.grid[move] != ' '
       puts "Sorry, that box is already filled."
       get_move_from(the_current_player)
     else
@@ -67,5 +65,22 @@ class Computer
 
   def get_next_move
     1
+  end
+end
+
+class VictoryChecker
+
+end
+
+class Board
+  attr_reader :grid
+  def initialize
+    @grid = {1 => ' ', 2 => ' ', 3 => ' ',
+             4 => ' ', 5 => ' ', 6 => ' ',
+             7 => ' ', 8 => ' ', 9 => ' '}
+  end
+
+  def make_move(position, mark)
+    grid[position] = mark
   end
 end

@@ -8,22 +8,16 @@ describe Game do
   end
   describe '.new' do
     it "initializes an empty board" do
-      board = {1 => ' ', 2 => ' ', 3 => ' ',
+      grid = {1 => ' ', 2 => ' ', 3 => ' ',
                4 => ' ', 5 => ' ', 6 => ' ',
                7 => ' ', 8 => ' ', 9 => ' '}
-      expect(game.board).to eq board
+      board = Board.new
+      expect(board.grid).to eq grid
     end
 
     it "sets who the first player will be" do
       game.should_receive(:first_player).and_return('computer')
       expect(game.first_player).to eq 'computer'
-    end
-  end
-
-  describe '#make_move' do
-    it "places the given mark at the specified position on the board" do
-      game.make_move(3, 'X')
-      expect(game.board[3]).to eq 'X'
     end
   end
 
