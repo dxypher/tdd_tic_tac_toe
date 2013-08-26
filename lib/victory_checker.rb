@@ -9,4 +9,13 @@ class VictoryChecker
     return 'X' if [top, mid, bottom].include?(THREE_CONSECUTIVE_Xs)
     return 'O' if [top, mid, bottom].include?(THREE_CONSECUTIVE_Os)
   end
+
+  def vertical_win(grid)
+    left = grid.values_at(1, 4, 7)
+    mid = grid.values_at(2, 5, 8)
+    right = grid.values_at(3, 6, 9)
+
+    return 'X' if [left, mid, right].include?(THREE_CONSECUTIVE_Xs)
+    return 'O' if [left, mid, right].include?(THREE_CONSECUTIVE_Os)
+  end
 end
