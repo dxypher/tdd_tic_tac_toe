@@ -51,5 +51,14 @@ describe VictoryChecker do
       board.grid[1], board.grid[9] = 'O', 'O'
       expect(victory_checker.check_for_win(board.grid)).to be_nil
     end
+
+    context "stalemate" do
+      it "should return 'Game is a Stalemate' if no one wins and all spaces are filled" do
+        board = double('board', 'grid' => {1 => 'X', 2 => 'O', 3 => 'X',
+                                           4 => 'X', 5 => 'O', 6 => 'O',
+                                           7 => 'O', 8 => 'X', 9 => 'X'})
+        expect(victory_checker.check_for_win(board.grid)).to eq 'Game is a Stalemate'
+      end
+    end
   end
 end
