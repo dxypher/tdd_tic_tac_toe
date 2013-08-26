@@ -9,12 +9,12 @@ describe VictoryChecker do
   describe '#check_for_win' do
     it "should return 'X' if any row has all X's" do
       board.grid[7], board.grid[8], board.grid[9] = 'X', 'X', 'X'
-      expect(victory_checker.check_for_win(board.grid)).to eq 'X'
+      expect(victory_checker.check_for_win(board.grid)).to eq 'X Wins!'
     end
 
     it "should return 'O' if any row has all O's" do
       board.grid[4], board.grid[5], board.grid[6] = 'O', 'O', 'O'
-      expect(victory_checker.check_for_win(board.grid)).to eq 'O'
+      expect(victory_checker.check_for_win(board.grid)).to eq 'O Wins!'
     end
 
     it "should return nil if there are no horizontal wins" do
@@ -24,12 +24,12 @@ describe VictoryChecker do
 
     it "should return 'X' if any column has all X's" do
       board.grid[2], board.grid[5], board.grid[8] = 'X', 'X', 'X'
-      expect(victory_checker.check_for_win(board.grid)).to eq 'X'
+      expect(victory_checker.check_for_win(board.grid)).to eq 'X Wins!'
     end
 
     it "should return 'O' if any column has all O's" do
       board.grid[1], board.grid[4], board.grid[7] = 'O', 'O', 'O'
-      expect(victory_checker.check_for_win(board.grid)).to eq 'O'
+      expect(victory_checker.check_for_win(board.grid)).to eq 'O Wins!'
     end
 
     it "should return nil if there are no vertical wins" do
@@ -39,12 +39,12 @@ describe VictoryChecker do
 
     it "should return 'X' if any column has all X's" do
       board.grid[1], board.grid[5], board.grid[9] = 'X', 'X', 'X'
-      expect(victory_checker.check_for_win(board.grid)).to eq 'X'
+      expect(victory_checker.check_for_win(board.grid)).to eq 'X Wins!'
     end
 
     it "should return 'O' if any column has all O's" do
       board.grid[3], board.grid[5], board.grid[7] = 'O', 'O', 'O'
-      expect(victory_checker.check_for_win(board.grid)).to eq 'O'
+      expect(victory_checker.check_for_win(board.grid)).to eq 'O Wins!'
     end
 
     it "should return nil if there are no vertical wins" do

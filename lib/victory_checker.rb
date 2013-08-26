@@ -4,8 +4,8 @@ class VictoryChecker
 
   def check_for_win(grid)
     combinations = winning_combinations(grid)
-    return 'X' if combinations.include?(THREE_CONSECUTIVE_Xs)
-    return 'O' if combinations.include?(THREE_CONSECUTIVE_Os)
+    return 'X Wins!' if combinations.include?(THREE_CONSECUTIVE_Xs)
+    return 'O Wins!' if combinations.include?(THREE_CONSECUTIVE_Os)
     return 'Game is a Stalemate' if !combinations.flatten.include?(' ')
   end
 
