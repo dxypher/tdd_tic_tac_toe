@@ -9,7 +9,7 @@ class Game
   end
 
   def play
-    player = current_player
+    player = current_player(@last_player)
     position = get_move_from(player)
     mark = player.mark
     @board.make_move(position, mark)
@@ -23,9 +23,13 @@ class Game
 
   def current_player(last_player=nil)
     if last_player.nil?
-      @first_player == 'human' ? @human : @computer
+      player = @first_player == 'human' ? @human : @computer
+      @last_player = player
+      player
     else
-      last_player.class == Human ? @computer : @human
+      player = last_player.class == Human ? @computer : @human
+      @last_player = player
+      player
     end
   end
 
