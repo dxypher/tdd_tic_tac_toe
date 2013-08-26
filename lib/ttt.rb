@@ -1,11 +1,12 @@
-require 'game'
-require 'human'
-require 'computer'
-require 'victory_checker'
-require 'board'
+require_relative 'game'
+require_relative 'human'
+require_relative 'computer'
+require_relative 'victory_checker'
+require_relative 'board'
+require_relative 'ui'
 
-# game = Game.new
-# game.play
+game = Game.new
+game.play
 
 
 

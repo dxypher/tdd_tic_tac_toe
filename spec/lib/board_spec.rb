@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'ttt'
+require 'board'
 
 describe Board do
   describe '#make_move' do

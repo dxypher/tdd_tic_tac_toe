@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'ttt'
+require 'computer'
 
 describe Computer do
   describe '.new' do

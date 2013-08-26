@@ -5,9 +5,11 @@ class Game
     @first_player = first_player
     @human = Human.new(@first_player)
     @computer = Computer.new(@first_player)
+    @ui = UI.new
   end
 
   def play
+    @ui.print_board(@board.grid)
     player = current_player
     position = get_move_from(player)
     mark = get_mark(player)

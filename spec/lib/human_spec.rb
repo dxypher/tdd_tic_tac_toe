@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'ttt'
+require 'human'
 
 describe Human do
   describe '.new' do
