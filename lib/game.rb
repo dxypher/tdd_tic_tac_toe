@@ -34,7 +34,6 @@ class Game
   end
 
   def get_move_from(the_current_player)
-    puts "Choose your next move..."
     move = the_current_player.get_next_move
     if !(1..9).include?(move)
       puts "Sorry, please enter a valid box number between 1 and 9."
@@ -45,5 +44,20 @@ class Game
     else
       move
     end
+  end
+
+  def print_game_instructions
+    puts "Welcome to Tic-Tac-Toe..."
+    puts "To make a move select a number between 1 and 9 that corresponds"
+    puts "to the box where you want your move to go."
+
+    puts "    1  |  2  |  3 "
+    puts "  _________________"
+    puts "    4  |  5  |  6 "
+    puts "  _________________"
+    puts "    7  |  8  |  9 "
+
+    message = @first_player == 'computer' ? "Computer goes first and is 'X'." : "You go first and are 'X'."
+    puts message
   end
 end

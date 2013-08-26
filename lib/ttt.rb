@@ -1,11 +1,6 @@
-require_relative 'game'
-require_relative 'human'
-require_relative 'computer'
-require_relative 'victory_checker'
-require_relative 'board'
-require_relative 'ui'
-
+Dir["./lib/*.rb"].each {|file| require file }
 game = Game.new
+game.print_game_instructions
 game.play
 
 

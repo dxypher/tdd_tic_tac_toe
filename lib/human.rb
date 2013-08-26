@@ -9,6 +9,7 @@ class Human
   end
 
   def get_next_move
+    puts "Choose your next move..."
     gets.chomp.to_i
   end
 end
