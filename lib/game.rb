@@ -9,20 +9,16 @@ class Game
   end
 
   def play
-    @ui.print_board(@board.grid)
     player = current_player
     position = get_move_from(player)
-    mark = get_mark(player)
+    mark = player.mark
     @board.make_move(position, mark)
-    puts @board.grid
+    @ui.print_board(@board.grid)
+    play
   end
 
   def first_player
     first_player = ['computer', 'human'].sample
-  end
-
-  def get_mark(current_player)
-    current_player.mark
   end
 
   def current_player(last_player=nil)

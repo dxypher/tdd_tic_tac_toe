@@ -21,14 +21,6 @@ describe Game do
     end
   end
 
-  describe '#get_mark' do
-    it "should get the mark of the current player" do
-      computer = double('computer', 'mark' => 'O')
-      current_player = computer
-      expect(game.get_mark(current_player)).to eq 'O'
-    end
-  end
-
   describe '#current_player' do
     it "should return computer if last move was made by human" do
       last_player = Human.new('computer')
