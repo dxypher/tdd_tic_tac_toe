@@ -14,10 +14,9 @@ class Computer
 
   def make_winning_move(grid)
     collection = possible_wins(grid)
-
     collection.each do |row|
       values = row.map {|box| box[1]}
-      if values.count(@mark) == 2
+      if values.count(@mark) == 2 && values.count(' ') == 1
         i = row.reject {|box| box[1] != ' ' }
         return i.first.first
       end
@@ -31,7 +30,7 @@ class Computer
 
     collection.each do |row|
       values = row.map {|box| box[1]}
-      if values.count(mark) == 2
+      if values.count(mark) == 2 && values.count(' ') == 1
         i = row.reject {|box| box[1] != ' ' }
         return i.first.first
       end

@@ -53,18 +53,18 @@ describe Computer do
   describe '#make_blocking_move' do
     it 'should make next move the empty position if it would prevent three consecutive human marks' do
       computer = Computer.new('computer')
-      board = double('board', 'grid' => {1 => 'X', 2 => 'X', 3 => 'O',
-                                         4 => ' ', 5 => 'O', 6 => 'O',
-                                         7 => ' ', 8 => 'X', 9 => ' '})
-      expect(computer.make_blocking_move(board.grid)).to eq 4
+      board = double('board', 'grid' => {1 => 'X', 2 => ' ', 3 => 'O',
+                                         4 => ' ', 5 => 'O', 6 => ' ',
+                                         7 => ' ', 8 => ' ', 9 => 'X'})
+      expect(computer.make_blocking_move(board.grid)).to eq 7
     end
 
-    # it 'should make next move the empty position if it would prevent three consecutive human marks' do
-    #   computer = Computer.new('human')
-    #   board = double('board', 'grid' => {1 => 'X', 2 => 'X', 3 => 'O',
-    #                                      4 => 'O', 5 => ' ', 6 => ' ',
-    #                                      7 => ' ', 8 => 'X', 9 => ' '})
-    #   expect(computer.make_blocking_move(board.grid)).to eq 5
-    # end
+    it 'should make next move the empty position if it would prevent three consecutive human marks' do
+      computer = Computer.new('human')
+      board = double('board', 'grid' => {1 => 'X', 2 => 'X', 3 => 'O',
+                                         4 => 'O', 5 => ' ', 6 => ' ',
+                                         7 => ' ', 8 => 'X', 9 => ' '})
+      expect(computer.make_blocking_move(board.grid)).to eq 5
+    end
   end
 end
