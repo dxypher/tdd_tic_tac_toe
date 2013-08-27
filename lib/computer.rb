@@ -35,6 +35,7 @@ class Computer
 
   def make_regular_move(grid)
     corners = [grid[1], grid[3], grid[7], grid[9]]
+    middles = [grid[2], grid[4], grid[6], grid[8]]
     if corners.count(' ') == 4
       return 1
     elsif grid[5] == ' '
@@ -42,6 +43,10 @@ class Computer
     elsif corners.count(' ') > 0
       corners.each_with_index do |value, idx|
         return [1,3,7,9][idx] if value == ' '
+      end
+    else
+      middles.each_with_index do |value, idx|
+        return [2,4,6,8][idx] if value == ' '
       end
     end
   end
