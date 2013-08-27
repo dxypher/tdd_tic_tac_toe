@@ -10,7 +10,7 @@ class Game
 
   def play
     player = current_player(@last_player)
-    position = get_move_from(player)
+    position = get_move_from(player, @board.grid)
     mark = player.mark
     @board.make_move(position, mark)
     @ui.print_board(@board.grid)
@@ -33,8 +33,8 @@ class Game
     end
   end
 
-  def get_move_from(the_current_player)
-    move = the_current_player.get_next_move
+  def get_move_from(the_current_player, grid)
+    move = the_current_player.get_next_move(grid)
     if !(1..9).include?(move)
       puts "Sorry, please enter a valid box number between 1 and 9."
       get_move_from(the_current_player)

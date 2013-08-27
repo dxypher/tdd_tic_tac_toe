@@ -8,8 +8,8 @@ class Computer
     first_player == 'computer' ? 'X' : 'O'
   end
 
-  def get_next_move
-    1
+  def get_next_move(grid)
+    make_winning_move(grid) || make_blocking_move(grid) || make_regular_move(grid)
   end
 
   def make_winning_move(grid)
