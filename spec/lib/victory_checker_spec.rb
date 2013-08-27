@@ -6,10 +6,12 @@ describe VictoryChecker do
                                                   4 => ' ', 5 => ' ', 6 => ' ',
                                                   7 => ' ', 8 => ' ', 9 => ' '})}
   let(:victory_checker) { VictoryChecker.new }
+
   describe '#check_for_win' do
     it "should return 'X' if any row has all X's" do
       board.grid[7], board.grid[8], board.grid[9] = 'X', 'X', 'X'
-      expect(victory_checker.check_for_win(board.grid)).to eq 'X Wins!'
+      victory_checker.check_for_win(board.grid)
+      expect(victory_checker.state).to eq 'X Wins!'
     end
 
     it "should return 'O' if any row has all O's" do

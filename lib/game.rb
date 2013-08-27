@@ -6,6 +6,7 @@ class Game
     @human = Human.new(@first_player)
     @computer = Computer.new(@first_player)
     @ui = UI.new
+    @victory_checker = VictoryChecker.new
   end
 
   def play
