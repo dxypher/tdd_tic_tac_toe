@@ -1,5 +1,6 @@
 class Human
   attr_reader :mark
+
   def initialize(first_player)
     @mark = set_mark(first_player)
   end

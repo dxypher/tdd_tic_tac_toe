@@ -1,5 +1,6 @@
 class VictoryChecker
   attr_reader :state
+
   THREE_CONSECUTIVE_Xs = ['X','X','X']
   THREE_CONSECUTIVE_Os = ['O','O','O']
 
