@@ -25,6 +25,20 @@ class Computer
     return nil
   end
 
+  def make_blocking_move(grid)
+    collection = possible_wins(grid)
+    mark = @mark == 'X' ? 'O' : 'X'
+
+    collection.each do |row|
+      values = row.map {|box| box[1]}
+      if values.count(mark) == 2
+        i = row.reject {|box| box[1] != ' ' }
+        return i.first.first
+      end
+    end
+    return nil
+  end
+
   def possible_wins(grid)
     array = grid.to_a
 
