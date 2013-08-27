@@ -84,5 +84,13 @@ describe Computer do
                                          7 => ' ', 8 => ' ', 9 => ' '})
       expect(computer.make_regular_move(board.grid)).to eq 5
     end
+
+    it "chooses a blank corner if the center position is taken" do
+      computer = Computer.new('human')
+      board = double('board', 'grid' => {1 => 'X', 2 => ' ', 3 => ' ',
+                                         4 => ' ', 5 => 'O', 6 => ' ',
+                                         7 => ' ', 8 => 'X', 9 => ' '})
+      expect(computer.make_regular_move(board.grid)).to eq 3
+    end
   end
 end
