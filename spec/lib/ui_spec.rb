@@ -8,7 +8,7 @@ describe UI do
       board = double('board', 'grid' => {1 => ' ', 2 => ' ', 3 => ' ',
                                          4 => ' ', 5 => ' ', 6 => ' ',
                                          7 => 'X', 8 => ' ', 9 => ' '})
-      expected = "      |     |   \n  _______________\n      |     |   \n  _______________\n   X  |     |   \n"
+      expected = "      |     |   \n  _______________\n      |     |   \n  _______________\n   X  |     |   \n\n"
       output = capture_stdout { ui.print_board(board.grid) }
       expect(output).to eq expected
     end
