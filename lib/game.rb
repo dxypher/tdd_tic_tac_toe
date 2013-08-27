@@ -1,5 +1,5 @@
 class Game
-  attr_reader :board, :first_player
+  attr_reader :first_player
   def initialize
     @board = Board.new
     @first_player = first_player
