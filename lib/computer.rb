@@ -13,21 +13,16 @@ class Computer
   end
 
   def make_winning_move(grid)
-    collection = possible_wins(grid)
-    collection.each do |row|
-      values = row.map {|box| box[1]}
-      if values.count(@mark) == 2 && values.count(' ') == 1
-        i = row.reject {|box| box[1] != ' ' }
-        return i.first.first
-      end
-    end
-    return nil
+    get_game_ending_move(grid, @mark)
   end
 
   def make_blocking_move(grid)
-    collection = possible_wins(grid)
     mark = @mark == 'X' ? 'O' : 'X'
+    get_game_ending_move(grid, mark)
+  end
 
+  def get_game_ending_move(grid, mark)
+    collection = possible_wins(grid)
     collection.each do |row|
       values = row.map {|box| box[1]}
       if values.count(mark) == 2 && values.count(' ') == 1
