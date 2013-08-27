@@ -15,7 +15,11 @@ class Game
     mark = player.mark
     @board.make_move(position, mark)
     @ui.print_board(@board.grid)
-    play
+    if @victory_checker.check_for_win(@board.grid)
+      puts @victory_checker.state
+    else
+      play
+    end
   end
 
   def first_player
