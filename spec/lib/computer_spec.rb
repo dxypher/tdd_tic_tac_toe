@@ -69,8 +69,8 @@ describe Computer do
   end
 
   describe '#make_regular_move' do
+    let(:computer) {Computer.new('human')}
     it "chooses a corner if all the corners are still empty" do
-      computer = Computer.new('human')
       board = double('board', 'grid' => {1 => ' ', 2 => ' ', 3 => ' ',
                                          4 => 'X', 5 => ' ', 6 => ' ',
                                          7 => ' ', 8 => ' ', 9 => ' '})
@@ -78,7 +78,6 @@ describe Computer do
     end
 
     it "chooses center box if it's still blank and all corners are not blank" do
-      computer = Computer.new('human')
       board = double('board', 'grid' => {1 => 'X', 2 => ' ', 3 => ' ',
                                          4 => ' ', 5 => ' ', 6 => ' ',
                                          7 => ' ', 8 => ' ', 9 => ' '})
@@ -86,7 +85,6 @@ describe Computer do
     end
 
     it "chooses a blank corner if the center position is taken" do
-      computer = Computer.new('human')
       board = double('board', 'grid' => {1 => 'X', 2 => ' ', 3 => ' ',
                                          4 => ' ', 5 => 'O', 6 => ' ',
                                          7 => ' ', 8 => 'X', 9 => ' '})
@@ -94,7 +92,6 @@ describe Computer do
     end
 
     it "chooses a middle box if no corners remain blank" do
-      computer = Computer.new('human')
       board = double('board', 'grid' => {1 => 'X', 2 => 'O', 3 => 'X',
                                          4 => ' ', 5 => 'O', 6 => 'O',
                                          7 => 'O', 8 => 'X', 9 => 'X'})
