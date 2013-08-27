@@ -1,0 +1,21 @@
+This is a Tic Tac Toe game written in Ruby using TDD.
+
+The game decides randomly who goes first, the computer or the human player.
+
+The first player is always 'X', and the second player is always 'O'.
+
+To make your move type a number between 1-9 representing the box you want to place a mark in.
+
+The objective was to create a game where the computer would not lose.
+
+Ruby version: ruby 2.0.0p247
+
+To run the game:
+
+$ ruby lib/ttt.rb
+
+To run the specs:
+
+$ gem install rspec
+
+$ rspec spec
