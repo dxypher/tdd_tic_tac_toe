@@ -37,6 +37,8 @@ class Computer
     corners = [grid[1], grid[3], grid[7], grid[9]]
     if corners.count(' ') == 4
       return 1
+    elsif grid[5] == ' '
+        5
     end
   end
 

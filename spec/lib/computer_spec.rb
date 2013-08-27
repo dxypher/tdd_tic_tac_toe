@@ -76,5 +76,13 @@ describe Computer do
                                          7 => ' ', 8 => ' ', 9 => ' '})
       expect(computer.make_regular_move(board.grid)).to eq 1
     end
+
+    it "chooses center box if it's still blank and all corners are not blank" do
+      computer = Computer.new('human')
+      board = double('board', 'grid' => {1 => 'X', 2 => ' ', 3 => ' ',
+                                         4 => ' ', 5 => ' ', 6 => ' ',
+                                         7 => ' ', 8 => ' ', 9 => ' '})
+      expect(computer.make_regular_move(board.grid)).to eq 5
+    end
   end
 end
