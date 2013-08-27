@@ -15,10 +15,19 @@ class Game
     mark = player.mark
     @board.make_move(position, mark)
     @ui.print_board(@board.grid)
-    if @victory_checker.check_for_win(@board.grid)
-      puts @victory_checker.state
-    else
+    unless announce_end_game?(@victory_checker)
       play
+    else
+      exit
+    end
+  end
+
+  def announce_end_game?(victory_checker)
+    if victory_checker.check_for_win(@board.grid)
+      puts victory_checker.state
+      return true
+    else
+      return false
     end
   end
 
@@ -42,10 +51,10 @@ class Game
     move = the_current_player.get_next_move(grid)
     if !(1..9).include?(move)
       puts "Sorry, please enter a valid box number between 1 and 9."
-      get_move_from(the_current_player)
+      get_move_from(the_current_player, grid)
     elsif @board.grid[move] != ' '
       puts "Sorry, that box is already filled."
-      get_move_from(the_current_player)
+      get_move_from(the_current_player, grid)
     else
       move
     end
