@@ -67,4 +67,14 @@ describe Computer do
       expect(computer.make_blocking_move(board.grid)).to eq 5
     end
   end
+
+  describe '#make_regular_move' do
+    it "chooses a corner if all the corners are still empty" do
+      computer = Computer.new('human')
+      board = double('board', 'grid' => {1 => ' ', 2 => ' ', 3 => ' ',
+                                         4 => 'X', 5 => ' ', 6 => ' ',
+                                         7 => ' ', 8 => ' ', 9 => ' '})
+      expect(computer.make_regular_move(board.grid)).to eq 1
+    end
+  end
 end

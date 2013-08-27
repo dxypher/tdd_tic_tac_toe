@@ -33,6 +33,13 @@ class Computer
     return nil
   end
 
+  def make_regular_move(grid)
+    corners = [grid[1], grid[3], grid[7], grid[9]]
+    if corners.count(' ') == 4
+      return 1
+    end
+  end
+
   def possible_wins(grid)
     array = grid.to_a
 
