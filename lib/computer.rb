@@ -41,13 +41,21 @@ class Computer
     elsif grid[5] == ' '
       return 5
     elsif corners.count(' ') > 0
-      corners.each_with_index do |value, idx|
-        return [1,3,7,9][idx] if value == ' '
-      end
+      make_corner_move(corners)
     else
-      middles.each_with_index do |value, idx|
-        return [2,4,6,8][idx] if value == ' '
-      end
+      make_middle_move(middles)
+    end
+  end
+
+  def make_corner_move(corners)
+    corners.each_with_index do |value, idx|
+      return [1,3,7,9][idx] if value == ' '
+    end
+  end
+
+  def make_middle_move(middles)
+    middles.each_with_index do |value, idx|
+      return [2,4,6,8][idx] if value == ' '
     end
   end
 
