@@ -12,9 +12,9 @@ class VictoryChecker
     if combinations.include?(THREE_CONSECUTIVE_Xs)
       return @state = 'X Wins!'
     elsif combinations.include?(THREE_CONSECUTIVE_Os)
-      return 'O Wins!'
+      return @state = 'O Wins!'
     elsif !combinations.flatten.include?(' ')
-      return 'Game is a Stalemate'
+      return @state = 'Game is a Stalemate'
     end
   end
 

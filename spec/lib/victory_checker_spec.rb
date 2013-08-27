@@ -16,42 +16,50 @@ describe VictoryChecker do
 
     it "should return 'O' if any row has all O's" do
       board.grid[4], board.grid[5], board.grid[6] = 'O', 'O', 'O'
-      expect(victory_checker.check_for_win(board.grid)).to eq 'O Wins!'
+      victory_checker.check_for_win(board.grid)
+      expect(victory_checker.state).to eq 'O Wins!'
     end
 
     it "should return nil if there are no horizontal wins" do
       board.grid[4], board.grid[5] = 'O', 'O'
-      expect(victory_checker.check_for_win(board.grid)).to be_nil
+      victory_checker.check_for_win(board.grid)
+      expect(victory_checker.state).to be_nil
     end
 
     it "should return 'X' if any column has all X's" do
       board.grid[2], board.grid[5], board.grid[8] = 'X', 'X', 'X'
-      expect(victory_checker.check_for_win(board.grid)).to eq 'X Wins!'
+      victory_checker.check_for_win(board.grid)
+      expect(victory_checker.state).to eq 'X Wins!'
     end
 
     it "should return 'O' if any column has all O's" do
       board.grid[1], board.grid[4], board.grid[7] = 'O', 'O', 'O'
-      expect(victory_checker.check_for_win(board.grid)).to eq 'O Wins!'
+      victory_checker.check_for_win(board.grid)
+      expect(victory_checker.state).to eq 'O Wins!'
     end
 
     it "should return nil if there are no vertical wins" do
       board.grid[1], board.grid[7] = 'O', 'O'
-      expect(victory_checker.check_for_win(board.grid)).to be_nil
+      victory_checker.check_for_win(board.grid)
+      expect(victory_checker.state).to be_nil
     end
 
     it "should return 'X' if any column has all X's" do
       board.grid[1], board.grid[5], board.grid[9] = 'X', 'X', 'X'
-      expect(victory_checker.check_for_win(board.grid)).to eq 'X Wins!'
+      victory_checker.check_for_win(board.grid)
+      expect(victory_checker.state).to eq 'X Wins!'
     end
 
     it "should return 'O' if any column has all O's" do
       board.grid[3], board.grid[5], board.grid[7] = 'O', 'O', 'O'
-      expect(victory_checker.check_for_win(board.grid)).to eq 'O Wins!'
+      victory_checker.check_for_win(board.grid)
+      expect(victory_checker.state).to eq 'O Wins!'
     end
 
     it "should return nil if there are no vertical wins" do
       board.grid[1], board.grid[9] = 'O', 'O'
-      expect(victory_checker.check_for_win(board.grid)).to be_nil
+      victory_checker.check_for_win(board.grid)
+      expect(victory_checker.state).to be_nil
     end
 
     context "stalemate" do
@@ -59,7 +67,8 @@ describe VictoryChecker do
         board = double('board', 'grid' => {1 => 'X', 2 => 'O', 3 => 'X',
                                            4 => 'X', 5 => 'O', 6 => 'O',
                                            7 => 'O', 8 => 'X', 9 => 'X'})
-        expect(victory_checker.check_for_win(board.grid)).to eq 'Game is a Stalemate'
+        victory_checker.check_for_win(board.grid)
+        expect(victory_checker.state).to eq 'Game is a Stalemate'
       end
     end
   end
