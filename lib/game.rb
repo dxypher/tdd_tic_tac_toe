@@ -10,16 +10,14 @@ class Game
   end
 
   def play
-    player = current_player(@last_player)
-    position = get_move_from(player, @board.grid)
-    mark = player.mark
-    @board.make_move(position, mark)
-    @ui.print_board(@board.grid)
-    unless announce_end_game?(@victory_checker)
-      play
-    else
-      exit
+    while !announce_end_game?(@victory_checker)
+      player = current_player(@last_player)
+      position = get_move_from(player, @board.grid)
+      mark = player.mark
+      @board.make_move(position, mark)
+      @ui.print_board(@board.grid)
     end
+      exit
   end
 
   def announce_end_game?(victory_checker)
@@ -38,13 +36,11 @@ class Game
   def current_player(last_player=nil)
     if last_player.nil?
       player = @first_player == 'human' ? @human : @computer
-      @last_player = player
-      player
     else
       player = last_player.class == Human ? @computer : @human
-      @last_player = player
-      player
     end
+    @last_player = player
+    player
   end
 
   def get_move_from(the_current_player, grid)
