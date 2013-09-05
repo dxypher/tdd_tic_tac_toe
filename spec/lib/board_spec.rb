@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'board'
 
 describe Board do
   describe '#make_move' do

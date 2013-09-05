@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'victory_checker'
 
 describe VictoryChecker do
   let(:board) {board = double('board', 'grid' => {1 => ' ', 2 => ' ', 3 => ' ',

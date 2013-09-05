@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'ui'
 
 describe UI do
   describe '#print_board' do

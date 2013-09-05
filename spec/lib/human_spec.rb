@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'human'
 
 describe Human do
   describe '.new' do

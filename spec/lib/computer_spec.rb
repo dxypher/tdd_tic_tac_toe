@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'computer'
 
 describe Computer do
   describe '.new' do

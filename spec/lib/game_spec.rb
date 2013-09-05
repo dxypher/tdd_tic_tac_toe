@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'game'
 
 describe Game do
   let(:game) {Game.new}
@@ -46,12 +45,6 @@ describe Game do
     it "should get the next move from the computer player" do
       current_player = Computer.new('human')
       expect(game.get_move_from(current_player, board.grid)).to eq 3
-    end
-
-    it "should not return a position which is already taken" do
-      current_player = Human.new('computer')
-      current_player.stub(:gets) { "7\n" }
-      expect(game.get_move_from(current_player, board.grid)).to eq 7 
     end
   end
 
