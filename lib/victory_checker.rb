@@ -1,7 +1,7 @@
 class VictoryChecker
   attr_reader :state
 
-  THREE_CONSECUTIVE_Xs = ['X','X','X']
+  THREE_CONSECUTIVE_Xs = ['computer','computer','computer']
   THREE_CONSECUTIVE_Os = ['O','O','O']
 
   def initialize
@@ -11,7 +11,7 @@ class VictoryChecker
   def check_for_win(grid)
     combinations = winning_combinations(grid)
     if combinations.include?(THREE_CONSECUTIVE_Xs)
-      return @state = 'X Wins!'
+      return @state = 'Computer Wins!'
     elsif combinations.include?(THREE_CONSECUTIVE_Os)
       return @state = 'O Wins!'
     elsif !combinations.flatten.include?(' ')
