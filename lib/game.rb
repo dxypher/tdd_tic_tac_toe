@@ -12,8 +12,7 @@ class Game
     while !announce_end_game?(@victory_checker)
       player = current_player(@last_player)
       position = get_move_from(player, @board.grid)
-      mark = player.mark
-      @board.make_move(position, mark)
+      @board.make_move(position, player)
       @ui.print_board(@board.grid)
     end
       exit

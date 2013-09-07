@@ -6,7 +6,8 @@ class Board
              7 => ' ', 8 => ' ', 9 => ' '}
   end
 
-  def make_move(position, mark)
-    grid[position] = mark
+  def make_move(position, player)
+    owner = player.class == Human ? 'human' : 'computer'
+    grid[position] = owner
   end
 end
