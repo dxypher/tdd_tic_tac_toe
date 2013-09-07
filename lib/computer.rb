@@ -8,8 +8,7 @@ class Computer
   end
 
   def make_blocking_move(grid)
-    mark = @mark == 'X' ? 'O' : 'X'
-    get_game_ending_move(grid, mark)
+    get_game_ending_move(grid, 'human')
   end
 
   def get_game_ending_move(grid, player)
