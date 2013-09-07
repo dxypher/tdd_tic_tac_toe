@@ -1,0 +1,2 @@
+COMPUTER_MARK = 'X'
+HUMAN_MARK = 'O'

@@ -4,9 +4,10 @@ describe UI do
   describe '#print_board' do
     it "should print the current board to the console" do
       ui = UI.new
+      COMPUTER_MARK = 'X'
       board = double('board', 'grid' => {1 => ' ', 2 => ' ', 3 => ' ',
                                          4 => ' ', 5 => ' ', 6 => ' ',
-                                         7 => 'X', 8 => ' ', 9 => ' '})
+                                         7 => 'computer', 8 => ' ', 9 => ' '})
       expected = "      |     |   \n  _______________\n      |     |   \n  _______________\n   X  |     |   \n\n"
       output = capture_stdout { ui.print_board(board.grid) }
       expect(output).to eq expected
