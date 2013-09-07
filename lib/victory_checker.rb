@@ -2,7 +2,7 @@ class VictoryChecker
   attr_reader :state
 
   THREE_CONSECUTIVE_Xs = ['computer','computer','computer']
-  THREE_CONSECUTIVE_Os = ['O','O','O']
+  THREE_CONSECUTIVE_Os = ['human','human','human']
 
   def initialize
     @state = nil
@@ -13,7 +13,7 @@ class VictoryChecker
     if combinations.include?(THREE_CONSECUTIVE_Xs)
       return @state = 'Computer Wins!'
     elsif combinations.include?(THREE_CONSECUTIVE_Os)
-      return @state = 'O Wins!'
+      return @state = 'Human Wins!'
     elsif !combinations.flatten.include?(' ')
       return @state = 'Game is a Stalemate'
     end

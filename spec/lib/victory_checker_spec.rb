@@ -13,11 +13,10 @@ describe VictoryChecker do
       expect(victory_checker.state).to eq 'Computer Wins!'
     end
 
-    it "should return 'O' if any row has all O's" do
-      pending
-      board.grid[4], board.grid[5], board.grid[6] = 'O', 'O', 'O'
+    it "should return 'human' if any row is owned entirely by the human player" do
+      board.grid[4], board.grid[5], board.grid[6] = 'human', 'human', 'human'
       victory_checker.check_for_win(board.grid)
-      expect(victory_checker.state).to eq 'O Wins!'
+      expect(victory_checker.state).to eq 'Human Wins!'
     end
 
     it "should return nil if there are no horizontal wins" do
