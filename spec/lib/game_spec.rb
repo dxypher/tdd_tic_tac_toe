@@ -38,7 +38,7 @@ describe Game do
     end
 
     it "should get the next move from the computer player" do
-      current_player = Computer.new('human')
+      current_player = Computer.new
       expect(game.get_move_from(current_player, board.grid)).to eq 3
     end
   end

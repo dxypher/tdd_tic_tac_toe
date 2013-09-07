@@ -1,20 +1,10 @@
-# computer's ownership of a spot on the board is always represented by a 0.
 class Computer
-  attr_reader :mark
-  def initialize(first_player)
-    @mark = set_mark(first_player)
-  end
-
-  def set_mark(first_player)
-    first_player == 'computer' ? 'X' : 'O'
-  end
-
   def get_next_move(grid)
     make_winning_move(grid) || make_blocking_move(grid) || make_regular_move(grid)
   end
 
   def make_winning_move(grid)
-    get_game_ending_move(grid, @mark)
+    get_game_ending_move(grid, 'computer')
   end
 
   def make_blocking_move(grid)
@@ -22,11 +12,11 @@ class Computer
     get_game_ending_move(grid, mark)
   end
 
-  def get_game_ending_move(grid, mark)
+  def get_game_ending_move(grid, player)
     collection = possible_wins(grid)
     collection.each do |row|
       values = row.map {|box| box[1]}
-      if values.count(mark) == 2 && values.count(' ') == 1
+      if values.count(player) == 2 && values.count(' ') == 1
         i = row.reject {|box| box[1] != ' ' }
         return i.first.first
       end

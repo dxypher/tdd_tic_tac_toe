@@ -2,7 +2,7 @@ class Game
   def initialize
     @board = Board.new
     @human = Human.new
-    @computer = Computer.new(@first_player)
+    @computer = Computer.new
     @ui = UI.new
     @victory_checker = VictoryChecker.new
     print_game_instructions
