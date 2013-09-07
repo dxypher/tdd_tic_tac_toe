@@ -1,12 +1,11 @@
 class Game
-  attr_reader :first_player
   def initialize
     @board = Board.new
-    @first_player = first_player
-    @human = Human.new(@first_player)
+    @human = Human.new
     @computer = Computer.new(@first_player)
     @ui = UI.new
     @victory_checker = VictoryChecker.new
+    print_game_instructions
   end
 
   def play
@@ -29,9 +28,6 @@ class Game
     end
   end
 
-  def first_player
-    first_player = ['computer', 'human'].sample
-  end
 
   def current_player(last_player=nil)
     if last_player.nil?
@@ -56,7 +52,12 @@ class Game
     end
   end
 
+  def first_player
+    first_player = ['computer', 'human'].sample
+  end
+
   def print_game_instructions
+    player_one = first_player
     puts "Welcome to Tic-Tac-Toe..."
     puts "To make a move select a number between 1 and 9 that corresponds"
     puts "to the box where you want your move to go."
@@ -67,7 +68,7 @@ class Game
     puts "  _________________"
     puts "    7  |  8  |  9 "
 
-    message = @first_player == 'computer' ? "Computer goes first and is 'X'." : "You go first and are 'X'."
+    message = player_one == 'computer' ? "Computer goes first." : "You go first."
     puts message
   end
 end

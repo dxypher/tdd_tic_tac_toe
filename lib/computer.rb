@@ -1,3 +1,4 @@
+# computer's ownership of a spot on the board is always represented by a 0.
 class Computer
   attr_reader :mark
   def initialize(first_player)

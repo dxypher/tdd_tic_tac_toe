@@ -13,16 +13,11 @@ describe Game do
       board = Board.new
       expect(board.grid).to eq grid
     end
-
-    it "sets who the first player will be" do
-      game.should_receive(:first_player).and_return('computer')
-      expect(game.first_player).to eq 'computer'
-    end
   end
 
   describe '#current_player' do
     it "should return computer if last move was made by human" do
-      last_player = Human.new('computer')
+      last_player = Human.new
       expect(game.current_player(last_player)).to be_an_instance_of(Computer)
     end
 
@@ -37,7 +32,7 @@ describe Game do
                                             4 => ' ', 5 => 'O', 6 => ' ',
                                             7 => ' ', 8 => 'X', 9 => ' '})}
     it "should get the next move from the human player" do
-      current_player = Human.new('computer')
+      current_player = Human.new
       current_player.stub(:gets) { "7\n" }
       expect(game.get_move_from(current_player, board.grid)).to eq 7      
     end
