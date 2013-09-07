@@ -3,9 +3,10 @@ class Game
     @board = Board.new
     @human = Human.new
     @computer = Computer.new
-    @ui = UI.new
     @victory_checker = VictoryChecker.new
-    print_game_instructions
+    @first_player = first_player
+    @ui = UI.new(@first_player)
+    print_game_instructions(@first_player)
   end
 
   def play
@@ -55,8 +56,7 @@ class Game
     first_player = ['computer', 'human'].sample
   end
 
-  def print_game_instructions
-    player_one = first_player
+  def print_game_instructions(player_one)
     puts "Welcome to Tic-Tac-Toe..."
     puts "To make a move select a number between 1 and 9 that corresponds"
     puts "to the box where you want your move to go."

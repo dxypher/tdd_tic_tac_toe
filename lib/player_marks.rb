@@ -1,6 +1,2 @@
-first_player = 'X'
-second_player = 'O'
-
-
-COMPUTER_MARK = 'X'
-HUMAN_MARK = 'O'
+FIRST_PLAYER_MARK = 'X'
+SECOND_PLAYER_MARK = 'O'
