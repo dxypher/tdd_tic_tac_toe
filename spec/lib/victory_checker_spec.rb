@@ -20,60 +20,52 @@ describe VictoryChecker do
     end
 
     it "should return nil if there are no horizontal wins" do
-      pending
-      board.grid[4], board.grid[5] = 'O', 'O'
+      board.grid[4], board.grid[5] = 'human', 'human'
       victory_checker.check_for_win(board.grid)
       expect(victory_checker.state).to be_nil
     end
 
-    it "should return 'X' if any column has all X's" do
-      pending
-      board.grid[2], board.grid[5], board.grid[8] = 'X', 'X', 'X'
+    it "should return 'computer' if any column is owned by the computer" do
+      board.grid[2], board.grid[5], board.grid[8] = 'computer', 'computer', 'computer'
       victory_checker.check_for_win(board.grid)
-      expect(victory_checker.state).to eq 'X Wins!'
+      expect(victory_checker.state).to eq 'Computer Wins!'
     end
 
-    it "should return 'O' if any column has all O's" do
-      pending
-      board.grid[1], board.grid[4], board.grid[7] = 'O', 'O', 'O'
+    it "should return 'human' if any column is owned by the human player" do
+      board.grid[1], board.grid[4], board.grid[7] = 'human', 'human', 'human'
       victory_checker.check_for_win(board.grid)
-      expect(victory_checker.state).to eq 'O Wins!'
+      expect(victory_checker.state).to eq 'Human Wins!'
     end
 
     it "should return nil if there are no vertical wins" do
-      pending
-      board.grid[1], board.grid[7] = 'O', 'O'
+      board.grid[1], board.grid[7] = 'computer', 'computer'
       victory_checker.check_for_win(board.grid)
       expect(victory_checker.state).to be_nil
     end
 
-    it "should return 'X' if any column has all X's" do
-      pending
-      board.grid[1], board.grid[5], board.grid[9] = 'X', 'X', 'X'
+    it "should return 'computer' if any diagonal is owned by the computer" do
+      board.grid[1], board.grid[5], board.grid[9] = 'computer', 'computer', 'computer'
       victory_checker.check_for_win(board.grid)
-      expect(victory_checker.state).to eq 'X Wins!'
+      expect(victory_checker.state).to eq 'Computer Wins!'
     end
 
-    it "should return 'O' if any column has all O's" do
-      pending
-      board.grid[3], board.grid[5], board.grid[7] = 'O', 'O', 'O'
+    it "should return 'human' if any diagonal is owned by the human player" do
+      board.grid[3], board.grid[5], board.grid[7] = 'human', 'human', 'human'
       victory_checker.check_for_win(board.grid)
-      expect(victory_checker.state).to eq 'O Wins!'
+      expect(victory_checker.state).to eq 'Human Wins!'
     end
 
     it "should return nil if there are no vertical wins" do
-      pending
-      board.grid[1], board.grid[9] = 'O', 'O'
+      board.grid[1], board.grid[9] = 'human', 'human'
       victory_checker.check_for_win(board.grid)
       expect(victory_checker.state).to be_nil
     end
 
     context "stalemate" do
       it "should return 'Game is a Stalemate' if no one wins and all spaces are filled" do
-        pending
-        board = double('board', 'grid' => {1 => 'X', 2 => 'O', 3 => 'X',
-                                           4 => 'X', 5 => 'O', 6 => 'O',
-                                           7 => 'O', 8 => 'X', 9 => 'X'})
+        board = double('board', 'grid' => {1 => 'human', 2 => 'computer', 3 => 'human',
+                                           4 => 'human', 5 => 'computer', 6 => 'computer',
+                                           7 => 'computer', 8 => 'human', 9 => 'human'})
         victory_checker.check_for_win(board.grid)
         expect(victory_checker.state).to eq 'Game is a Stalemate'
       end
